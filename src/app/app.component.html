@@ -1,0 +1,22 @@
+<mat-toolbar color="primary">
+  <span>{{title}}</span>
+
+  <span class="spacer"></span>
+
+  <span class="status" matTooltip="{{ verbose_communication }}" matTooltipPosition="left">
+    <span class="color-dot" [ngClass]="{
+    'none':status === 'good',
+    'major':status === 'bad',
+    'critical':status === 'critical'
+    }"></span>
+    <span>{{ verbose_status }}</span>
+  </span>
+</mat-toolbar>
+
+<router-outlet></router-outlet>
+<app-messages></app-messages>
+
+<div class="footer mat-toolbar-single-row">
+  <span>Données brutes disponibles sur&nbsp;</span>
+  <a href="{{ SIGFOX_CALLBACKS_URL }}" target="_blank">{{ SIGFOX_CALLBACKS_URL }}</a>
+</div>
